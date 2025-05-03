@@ -1,0 +1,12 @@
+// export { default as SendEmailAppointmentScheduling } from './SendEmailAppointmentScheduling';
+// export { default as SendWhatsappAppointmentScheduling } from './SendWhatsappAppointmentScheduling';
+// export { default as SendWhatsappAppointmentStatusChange } from './SendWhatsappAppointmentStatusChange';
+// export { default as SendWhatsappAppointmentReminder } from './SendWhatsappAppointmentReminder';
+// export { default as SendEmailAppointmentReminder } from './SendEmailAppointmentReminder';
+// export { default as SendEmailCreateClinic } from './SendEmailCreateClinic';
+// export { default as SendEmailForgotPassword } from './SendEmailForgotPassword';
+// export { default as SendEmailClinicProfessional } from './SendEmailClinicProfessional';
+// export { default as SendWhatsappAppointmentThanks } from './SendWhatsappAppointmentThanks';
+// export { default as SendWhatsappBirthdayPerson } from './SendWhatsappBirthdayPerson';
+// export { default as SendWhatsappProfessionalAppointmentAmount } from './SendWhatsappProfessionalAppointmentAmount';
+// export { default as SendEmailCreateProfessional } from './SendEmailCreateProfessional';
