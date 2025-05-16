@@ -13,16 +13,14 @@ const entitiesPath =
     : path + '/src/modules/**/entities/*.ts';
 
 const AppDataSource = new DataSource({
-  type: 'postgres',
-  host: process.env.PTG_HOST,
-  port: Number(process.env.PTG_PORT),
-  username: process.env.PTG_USERNAME,
-  password: process.env.PTG_PASSWORD,
-  database: process.env.PTG_DATABASE,
-  schema: process.env.PTG_SCHEMA,
+  type: 'mysql',
+  host: process.env.HOST,
+  port: Number(process.env.PORT),
+  username: process.env.USERNAME,
+  password: process.env.PASSWORD,
+  database: process.env.DATABASE,
   logging: true,
   entities: [entitiesPath],
-  connectTimeoutMS: 50000,
 });
 
 AppDataSource.initialize()
