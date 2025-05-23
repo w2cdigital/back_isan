@@ -35,11 +35,33 @@ class PageController {
     return response.sendStatus(200);
   }
 
-  // async list(request: Request, response: Response): Promise<Response> {
-  //   const service = container.resolve(PageService);
-  //   const result = await service.list();
-  //   return response.json(result);
-  // }
+  async list(request: Request, response: Response): Promise<Response> {
+    const { offset, limit, companyId, situation, input } = request.query;
+
+    const validateSchema = object({
+      offset: number().required(),
+      limit: number().required(),
+    });
+
+    validateSchema.validateSync({
+      offset: Number(offset),
+      limit: Number(limit),
+    });
+
+    const commpanyValidate = !companyId ? null : companyId.toString();
+    const situationValidate = situation === 'true';
+    const inputValidate = !input ? null : input.toString();
+
+    const service = container.resolve(PageService);
+    const result = await service.list(
+      Number(offset),
+      Number(limit),
+      commpanyValidate,
+      situationValidate,
+      inputValidate,
+    );
+    return response.json(result);
+  }
 
   async show(request: Request, response: Response): Promise<Response> {
     const { id } = request.params;

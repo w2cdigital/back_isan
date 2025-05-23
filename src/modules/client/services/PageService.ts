@@ -5,6 +5,7 @@ import { IPageRepository } from '../repositories/IPageRepository';
 import { Page } from '../entities/Page';
 import { ICreatePageDTO } from '../dtos/ICreatePageDTO';
 import { CompanyPage } from '../entities/CompanyPage';
+import { IResponsePageDTO } from '../dtos/IResponsePageDTO';
 
 @injectable()
 class PageService {
@@ -45,10 +46,10 @@ class PageService {
     offset: number,
     limit: number,
     companyId?: string,
-    situation?: string,
+    situation?: boolean,
     input?: string,
-  ): Promise<any> {
-    // return this.companyRepository.list();
+  ): Promise<IResponsePageDTO[]> {
+    return this.pageRepository.list(offset, limit, companyId, situation, input);
   }
 
   async show(id: string): Promise<Page> {

@@ -4,6 +4,14 @@ import { ICompanyRepository } from '../../modules/client/repositories/ICompanyRe
 import { CompanyRepository } from '../../modules/client/repositories/implementation/CompanyRepository';
 import { IPageRepository } from '../../modules/client/repositories/IPageRepository';
 import { PageRepository } from '../../modules/client/repositories/implementation/PageRepository';
+import { IMenuRepository } from '../../modules/client/repositories/IMenuRepository';
+import { MenuRepository } from '../../modules/client/repositories/implementation/MenuRepository';
+import { ITypeTextRepository } from '../../modules/client/repositories/ITypeTextRepository';
+import { TypeTextRepository } from '../../modules/client/repositories/implementation/TypeTextRepository';
+import { ITypeImageRepository } from '../../modules/client/repositories/ITypeImageRepository';
+import { TypeImageRepository } from '../../modules/client/repositories/implementation/TypeImageRepository';
+import { IImageRepository } from '../../modules/client/repositories/IImageRepository';
+import { ImageRepository } from '../../modules/client/repositories/implementation/ImageRepository';
 
 container.registerSingleton<ICompanyRepository>(
   'CompanyRepository',
@@ -13,4 +21,24 @@ container.registerSingleton<ICompanyRepository>(
 container.registerSingleton<IPageRepository>(
   'PageRepository',
   delay(() => PageRepository),
+);
+
+container.registerSingleton<IMenuRepository>(
+  'MenuRepository',
+  delay(() => MenuRepository),
+);
+
+container.registerSingleton<ITypeTextRepository>(
+  'TypeTextRepository',
+  delay(() => TypeTextRepository),
+);
+
+container.registerSingleton<ITypeImageRepository>(
+  'TypeImageRepository',
+  delay(() => TypeImageRepository),
+);
+
+container.registerSingleton<IImageRepository>(
+  'ImageRepository',
+  delay(() => ImageRepository),
 );

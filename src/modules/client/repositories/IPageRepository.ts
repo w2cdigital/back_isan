@@ -1,3 +1,4 @@
+import { IResponsePageDTO } from '../dtos/IResponsePageDTO';
 import { Page } from '../entities/Page';
 
 interface IPageRepository {
@@ -6,9 +7,9 @@ interface IPageRepository {
     offset: number,
     limit: number,
     companyId?: string,
-    situation?: string,
+    situation?: boolean,
     input?: string,
-  ): Promise<any>;
+  ): Promise<IResponsePageDTO[]>;
   findById(id: string): Promise<Page>;
   updateSituation(id: string, situation: boolean): Promise<void>;
 }
