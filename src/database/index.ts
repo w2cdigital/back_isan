@@ -15,7 +15,7 @@ const entitiesPath =
 const AppDataSource = new DataSource({
   type: 'mysql',
   host: process.env.HOST,
-  port: Number(process.env.PORT),
+  port: Number(process.env.PORT_DATABASE),
   username: process.env.USERNAME,
   password: process.env.PASSWORD,
   database: process.env.DATABASE,

@@ -12,6 +12,8 @@ import { ITypeImageRepository } from '../../modules/client/repositories/ITypeIma
 import { TypeImageRepository } from '../../modules/client/repositories/implementation/TypeImageRepository';
 import { IImageRepository } from '../../modules/client/repositories/IImageRepository';
 import { ImageRepository } from '../../modules/client/repositories/implementation/ImageRepository';
+import { ITextRepository } from '../../modules/client/repositories/ITextRepository';
+import { TextRepository } from '../../modules/client/repositories/implementation/TextRepository';
 
 container.registerSingleton<ICompanyRepository>(
   'CompanyRepository',
@@ -31,6 +33,11 @@ container.registerSingleton<IMenuRepository>(
 container.registerSingleton<ITypeTextRepository>(
   'TypeTextRepository',
   delay(() => TypeTextRepository),
+);
+
+container.registerSingleton<ITextRepository>(
+  'TextRepository',
+  delay(() => TextRepository),
 );
 
 container.registerSingleton<ITypeImageRepository>(
