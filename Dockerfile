@@ -29,7 +29,7 @@ COPY --from=builder /app/dist ./dist
 RUN yarn install
 
 # Expor porta da aplicação
-EXPOSE 3000
+EXPOSE 8080
 
 # Comando para iniciar a aplicação
 CMD ["yarn", "start"]
