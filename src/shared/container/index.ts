@@ -14,6 +14,10 @@ import { IImageRepository } from '../../modules/client/repositories/IImageReposi
 import { ImageRepository } from '../../modules/client/repositories/implementation/ImageRepository';
 import { ITextRepository } from '../../modules/client/repositories/ITextRepository';
 import { TextRepository } from '../../modules/client/repositories/implementation/TextRepository';
+import { ITypeButonRepository } from '../../modules/client/repositories/ITypeButonRepository';
+import { TypeButonRepository } from '../../modules/client/repositories/implementation/TypeButonRepository';
+import { IButonRepository } from '../../modules/client/repositories/IButonRepository';
+import { ButonRepository } from '../../modules/client/repositories/implementation/ButonRepository';
 
 container.registerSingleton<ICompanyRepository>(
   'CompanyRepository',
@@ -45,7 +49,17 @@ container.registerSingleton<ITypeImageRepository>(
   delay(() => TypeImageRepository),
 );
 
+container.registerSingleton<ITypeButonRepository>(
+  'TypeButonRepository',
+  delay(() => TypeButonRepository),
+);
+
 container.registerSingleton<IImageRepository>(
   'ImageRepository',
   delay(() => ImageRepository),
+);
+
+container.registerSingleton<IButonRepository>(
+  'ButonRepository',
+  delay(() => ButonRepository),
 );

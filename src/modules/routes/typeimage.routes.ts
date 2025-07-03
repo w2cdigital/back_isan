@@ -7,8 +7,8 @@ const typeImageController = new TypeImageController();
 
 const typeImageRoutes = Router();
 typeImageRoutes.post('/', asyncHandler(typeImageController.create));
-typeImageRoutes.get('/list/:pageId', asyncHandler(typeImageController.list));
 typeImageRoutes.get('/:id', asyncHandler(typeImageController.show));
+typeImageRoutes.get('/list', asyncHandler(typeImageController.list));
 typeImageRoutes.patch(
   '/update-name/:id',
   asyncHandler(typeImageController.updateName),

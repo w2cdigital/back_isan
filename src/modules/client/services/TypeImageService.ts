@@ -21,8 +21,8 @@ class TypeImageService {
     return this.typeImageRepository.save(typeImage);
   }
 
-  async list(pageId: string): Promise<TypeImage[]> {
-    return this.typeImageRepository.list(pageId);
+  async list(): Promise<TypeImage[]> {
+    return this.typeImageRepository.list();
   }
 
   async show(id: string): Promise<TypeImage> {

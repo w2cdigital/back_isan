@@ -14,10 +14,8 @@ class TypeTextRepository implements ITypeTextRepository {
     return this.repository.save(typeText);
   }
 
-  async list(pageId: string): Promise<TypeText[]> {
-    return this.repository.find({
-      where: { pageId },
-    });
+  async list(): Promise<TypeText[]> {
+    return this.repository.find();
   }
 
   async findById(id: string): Promise<TypeText> {

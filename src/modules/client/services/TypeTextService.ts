@@ -23,8 +23,8 @@ class TypeTextService {
     return this.typeTextRepository.save(typeText);
   }
 
-  async list(pageId: string): Promise<TypeText[]> {
-    return this.typeTextRepository.list(pageId);
+  async list(): Promise<TypeText[]> {
+    return this.typeTextRepository.list();
   }
 
   async show(id: string): Promise<TypeText> {

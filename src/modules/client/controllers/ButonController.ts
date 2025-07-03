@@ -2,46 +2,52 @@ import { Response, Request } from 'express';
 import { container } from 'tsyringe';
 import { object, string, number, date, InferType, boolean } from 'yup';
 
-import { TypeImageService } from '../services/TypeImageService';
+import { ButonService } from '../services/ButonService';
 
-class TypeImageController {
+class ButonController {
   async create(request: Request, response: Response): Promise<Response> {
     const validateSchema = object({
-      name: string().required(),
-      pageId: string().nullable(),
+      description: string().nullable(),
+      companyPageId: string().nullable(),
+      typeButonId: string().nullable(),
     });
 
     validateSchema.validateSync(request.body);
 
-    const service = container.resolve(TypeImageService);
+    const service = container.resolve(ButonService);
     const result = await service.create(request.body);
     return response.status(201).json(result);
   }
 
-  async updateName(request: Request, response: Response): Promise<Response> {
+  async updateDescription(
+    request: Request,
+    response: Response,
+  ): Promise<Response> {
     const { id } = request.params;
-    const { name } = request.body;
+    const { description } = request.body;
 
     const validateSchema = object({
-      name: string().required(),
+      description: string().required(),
     });
 
-    validateSchema.validateSync({ name });
+    validateSchema.validateSync({ description });
 
-    const service = container.resolve(TypeImageService);
-    await service.updateName(id, name);
+    const service = container.resolve(ButonService);
+    await service.updateDescription(id, description);
     return response.sendStatus(200);
   }
 
   async list(request: Request, response: Response): Promise<Response> {
-    const service = container.resolve(TypeImageService);
-    const result = await service.list();
+    const { companyPageId } = request.params;
+
+    const service = container.resolve(ButonService);
+    const result = await service.list(companyPageId);
     return response.json(result);
   }
 
   async show(request: Request, response: Response): Promise<Response> {
     const { id } = request.params;
-    const service = container.resolve(TypeImageService);
+    const service = container.resolve(ButonService);
     const result = await service.show(id);
     return response.json(result);
   }
@@ -53,10 +59,10 @@ class TypeImageController {
     const { id } = request.params;
     const { situation } = request.body;
 
-    const service = container.resolve(TypeImageService);
+    const service = container.resolve(ButonService);
     await service.updateSituation(id, situation);
     return response.sendStatus(200);
   }
 }
 
-export { TypeImageController };
+export { ButonController };

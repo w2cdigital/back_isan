@@ -14,10 +14,8 @@ class TypeImageRepository implements ITypeImageRepository {
     return this.repository.save(typeImage);
   }
 
-  async list(pageId: string): Promise<TypeImage[]> {
-    return this.repository.find({
-      where: { pageId },
-    });
+  async list(): Promise<TypeImage[]> {
+    return this.repository.find();
   }
 
   async findById(id: string): Promise<TypeImage> {

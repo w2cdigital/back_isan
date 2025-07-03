@@ -34,10 +34,8 @@ class TypeTextController {
   }
 
   async list(request: Request, response: Response): Promise<Response> {
-    const { pageId } = request.params;
-
     const service = container.resolve(TypeTextService);
-    const result = await service.list(pageId);
+    const result = await service.list();
     return response.json(result);
   }
 

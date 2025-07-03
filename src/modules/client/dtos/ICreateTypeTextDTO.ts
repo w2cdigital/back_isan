@@ -1,6 +1,6 @@
 interface ICreateTypeTextDTO {
   name: string;
-  pageId: string;
+  pageId?: string;
 }
 
 export { ICreateTypeTextDTO };
