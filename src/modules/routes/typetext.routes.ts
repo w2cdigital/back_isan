@@ -8,7 +8,7 @@ const typeTextController = new TypeTextController();
 const typeTextRoutes = Router();
 typeTextRoutes.post('/', asyncHandler(typeTextController.create));
 typeTextRoutes.get('/:id', asyncHandler(typeTextController.show));
-typeTextRoutes.get('/list', asyncHandler(typeTextController.list));
+typeTextRoutes.get('/', asyncHandler(typeTextController.list));
 typeTextRoutes.patch(
   '/update-name/:id',
   asyncHandler(typeTextController.updateName),

@@ -8,7 +8,7 @@ const typeButonController = new TypeButonController();
 const typeButonRoutes = Router();
 typeButonRoutes.post('/', asyncHandler(typeButonController.create));
 typeButonRoutes.get('/:id', asyncHandler(typeButonController.show));
-typeButonRoutes.get('/list', asyncHandler(typeButonController.list));
+typeButonRoutes.get('/', asyncHandler(typeButonController.list));
 typeButonRoutes.patch(
   '/update-name/:id',
   asyncHandler(typeButonController.updateName),
