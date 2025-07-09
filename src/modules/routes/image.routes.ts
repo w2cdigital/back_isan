@@ -3,7 +3,7 @@ import { asyncHandler } from '../../shared/helpers/AsyncHandler';
 import multer from 'multer';
 
 import { ImageController } from '../client/controllers/ImageController';
-import { uploadConfig } from 'config/upload';
+import { uploadConfig } from '../../config/upload';
 
 const imageController = new ImageController();
 
