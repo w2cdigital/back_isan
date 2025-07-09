@@ -27,6 +27,10 @@ class CompanyRepository implements ICompanyRepository {
   async updateSituation(id: string, situation: boolean): Promise<void> {
     await this.repository.update(id, { situation });
   }
+
+  async updateLogo(id: string, log: string): Promise<void> {
+    await this.repository.update(id, { log });
+  }
 }
 
 export { CompanyRepository };

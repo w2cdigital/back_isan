@@ -4,12 +4,15 @@ import validateUuid from '../../../shared/helpers/ValidateUuid';
 import { Image } from '../entities/Image';
 import { ImageRepository } from '../repositories/implementation/ImageRepository';
 import { ICreateImageDTO } from '../dtos/ICreateImageDTO';
+import { IBucketStorage } from 'shared/upload_buckets/BucketStorage';
 
 @injectable()
 class ImageService {
   constructor(
     @inject('ImageRepository')
     private imageRepository: ImageRepository,
+    @inject('BucketStorage')
+    private bucketStorage: IBucketStorage,
   ) {}
 
   async create(imageDTO: ICreateImageDTO): Promise<Image> {
@@ -36,6 +39,14 @@ class ImageService {
 
   async updateName(id: string, name: string): Promise<void> {
     await this.imageRepository.updateName(id, name);
+  }
+
+  async uploadImage(id: string, image_file: string): Promise<void> {
+    validateUuid(id);
+
+    await this.bucketStorage.save(image_file, `imagem`);
+
+    await this.imageRepository.updateName(id, image_file);
   }
 }
 

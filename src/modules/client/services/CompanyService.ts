@@ -4,12 +4,15 @@ import validateUuid from '../../../shared/helpers/ValidateUuid';
 import { ICompanyRepository } from '../repositories/ICompanyRepository';
 import { Company } from '../entities/Company';
 import { ICreateCompanyDTO } from '../dtos/ICreateCompanyDTO';
+import { IBucketStorage } from 'shared/upload_buckets/BucketStorage';
 
 @injectable()
 class CompanyService {
   constructor(
     @inject('CompanyRepository')
     private companyRepository: ICompanyRepository,
+    @inject('BucketStorage')
+    private bucketStorage: IBucketStorage,
   ) {}
 
   async create(companyDTO: ICreateCompanyDTO): Promise<Company> {
@@ -42,6 +45,14 @@ class CompanyService {
 
   async updateSituation(id: string, situation: boolean): Promise<void> {
     await this.companyRepository.updateSituation(id, situation);
+  }
+
+  async uploadImage(id: string, image_file: string): Promise<void> {
+    validateUuid(id);
+
+    await this.bucketStorage.save(image_file, `logo`);
+
+    await this.companyRepository.updateLogo(id, image_file);
   }
 }
 

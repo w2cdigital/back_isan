@@ -20,5 +20,10 @@ companyRoutes.patch(
   '/update-situation/:id',
   asyncHandler(companyController.updateSituation),
 );
+companyRoutes.patch(
+  '/upload-image/:id',
+  [uploadImage.single('image')],
+  asyncHandler(companyController.uploadImage),
+);
 
 export { companyRoutes };

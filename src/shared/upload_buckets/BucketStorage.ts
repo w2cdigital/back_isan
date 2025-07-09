@@ -30,8 +30,8 @@ class BucketStorage implements IBucketStorage {
 
     try {
       const uploadParams = {
-        Bucket: 'medtech',
-        Key: `${process.env.BUCKET_ENVIRONMENT}/${destinationFolder}/${filename}`,
+        Bucket: 'w2c',
+        Key: `${destinationFolder}/${filename}`,
         Body: fileBuffer,
         ContentType: contentType,
       };

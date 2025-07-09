@@ -48,6 +48,15 @@ class CompanyController {
     return response.json(result);
   }
 
+  async uploadImage(request: Request, response: Response): Promise<Response> {
+    const { id } = request.params;
+    const image_file = request.file.filename;
+
+    const service = container.resolve(CompanyService);
+    await service.uploadImage(id, image_file);
+    return response.sendStatus(200);
+  }
+
   async updateSituation(
     request: Request,
     response: Response,

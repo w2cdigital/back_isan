@@ -3,6 +3,7 @@ import { container } from 'tsyringe';
 import { object, string, number, date, InferType, boolean } from 'yup';
 
 import { ImageService } from '../services/ImageService';
+import { Image } from '../entities/Image';
 
 class ImageController {
   async create(request: Request, response: Response): Promise<Response> {
@@ -47,6 +48,15 @@ class ImageController {
     const service = container.resolve(ImageService);
     const result = await service.show(id);
     return response.json(result);
+  }
+
+  async uploadImage(request: Request, response: Response): Promise<Response> {
+    const { id } = request.params;
+    const image_file = request.file.filename;
+
+    const service = container.resolve(ImageService);
+    await service.uploadImage(id, image_file);
+    return response.sendStatus(200);
   }
 
   async updateSituation(
