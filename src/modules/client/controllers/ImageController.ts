@@ -8,7 +8,7 @@ import { Image } from '../entities/Image';
 class ImageController {
   async create(request: Request, response: Response): Promise<Response> {
     const validateSchema = object({
-      name: string().required(),
+      name: string().nullable(),
       companyPageId: string().nullable(),
       typeImageId: string().nullable(),
     });

@@ -31,7 +31,7 @@ class BucketStorage implements IBucketStorage {
     try {
       const uploadParams = {
         Bucket: 'w2c',
-        Key: `${destinationFolder}/${filename}`,
+        Key: `isan/${destinationFolder}/${filename}`,
         Body: fileBuffer,
         ContentType: contentType,
       };

@@ -18,7 +18,6 @@ class ImageService {
   async create(imageDTO: ICreateImageDTO): Promise<Image> {
     const image = new Image();
 
-    image.name = imageDTO.name;
     image.companyPageId = imageDTO.companyPageId;
     image.typeImageId = imageDTO.typeImageId;
 
