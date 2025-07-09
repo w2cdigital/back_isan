@@ -18,10 +18,19 @@ import { ITypeButonRepository } from '../../modules/client/repositories/ITypeBut
 import { TypeButonRepository } from '../../modules/client/repositories/implementation/TypeButonRepository';
 import { IButonRepository } from '../../modules/client/repositories/IButonRepository';
 import { ButonRepository } from '../../modules/client/repositories/implementation/ButonRepository';
+import {
+  BucketStorage,
+  IBucketStorage,
+} from '../../shared/upload_buckets/BucketStorage';
 
 container.registerSingleton<ICompanyRepository>(
   'CompanyRepository',
   delay(() => CompanyRepository),
+);
+
+container.registerSingleton<IBucketStorage>(
+  'BucketStorage',
+  delay(() => BucketStorage),
 );
 
 container.registerSingleton<IPageRepository>(
