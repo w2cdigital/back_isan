@@ -3,6 +3,7 @@ import { container } from 'tsyringe';
 import { object, string, number, date, InferType, boolean } from 'yup';
 
 import { CompanyService } from '../services/CompanyService';
+import { add } from 'date-fns';
 
 class CompanyController {
   async create(request: Request, response: Response): Promise<Response> {
@@ -16,6 +17,7 @@ class CompanyController {
       whatsapp: string().nullable(),
       linkWhatsapp: string().nullable(),
       linkMap: string().nullable(),
+      address: string().nullable(),
     });
 
     validateSchema.validateSync(request.body);
@@ -38,6 +40,7 @@ class CompanyController {
       whatsapp: string().nullable(),
       linkWhatsapp: string().nullable(),
       linkMap: string().nullable(),
+      address: string().nullable(),
     });
 
     validateSchema.validateSync(request.body);

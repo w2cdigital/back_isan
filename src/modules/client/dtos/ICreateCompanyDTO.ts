@@ -8,6 +8,7 @@ interface ICreateCompanyDTO {
   whatsapp: string;
   linkWhatsapp: string;
   linkMap: string;
+  address: string;
 }
 
 export { ICreateCompanyDTO };

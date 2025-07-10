@@ -22,6 +22,9 @@ class Company {
   @Column({ name: 'bairro_empresa' })
   district: string;
 
+  @Column({ name: 'endereco_empresa' })
+  address: string;
+
   @Column({ name: 'telefone_empresa' })
   phone: string;
 

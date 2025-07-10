@@ -27,6 +27,7 @@ class CompanyService {
     company.whatsapp = companyDTO.whatsapp;
     company.linkWhatsapp = companyDTO.linkWhatsapp;
     company.linkMap = companyDTO.linkMap;
+    company.address = companyDTO.address;
 
     return this.companyRepository.save(company);
   }
@@ -43,6 +44,7 @@ class CompanyService {
     company.whatsapp = companyDTO.whatsapp;
     company.linkWhatsapp = companyDTO.linkWhatsapp;
     company.linkMap = companyDTO.linkMap;
+    company.address = companyDTO.address;
 
     await this.companyRepository.save(company);
   }
