@@ -16,6 +16,24 @@ class Company {
   @Column({ name: 'uf_empresa' })
   uf: string;
 
+  @Column({ name: 'cep_empresa' })
+  cep: string;
+
+  @Column({ name: 'bairro_empresa' })
+  district: string;
+
+  @Column({ name: 'telefone_empresa' })
+  phone: string;
+
+  @Column({ name: 'whatsapp_empresa' })
+  whatsapp: string;
+
+  @Column({ name: 'link_whatsapp_empresa' })
+  linkWhatsapp: string;
+
+  @Column({ name: 'link_mapa_empresa' })
+  linkMap: string;
+
   @Column({ name: 'logomarca_empresa' })
   log?: string;
 

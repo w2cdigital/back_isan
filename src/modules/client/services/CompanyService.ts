@@ -21,6 +21,12 @@ class CompanyService {
     company.name = companyDTO.name;
     company.city = companyDTO.city;
     company.uf = companyDTO.uf;
+    company.cep = companyDTO.cep;
+    company.district = companyDTO.district;
+    company.phone = companyDTO.phone;
+    company.whatsapp = companyDTO.whatsapp;
+    company.linkWhatsapp = companyDTO.linkWhatsapp;
+    company.linkMap = companyDTO.linkMap;
 
     return this.companyRepository.save(company);
   }
@@ -31,6 +37,12 @@ class CompanyService {
     company.name = companyDTO.name;
     company.city = companyDTO.city;
     company.uf = companyDTO.uf;
+    company.cep = companyDTO.cep;
+    company.district = companyDTO.district;
+    company.phone = companyDTO.phone;
+    company.whatsapp = companyDTO.whatsapp;
+    company.linkWhatsapp = companyDTO.linkWhatsapp;
+    company.linkMap = companyDTO.linkMap;
 
     await this.companyRepository.save(company);
   }

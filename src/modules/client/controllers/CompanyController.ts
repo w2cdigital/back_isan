@@ -10,6 +10,12 @@ class CompanyController {
       name: string().required(),
       city: string().nullable(),
       uf: string().nullable(),
+      cep: string().nullable(),
+      district: string().nullable(),
+      phone: string().nullable(),
+      whatsapp: string().nullable(),
+      linkWhatsapp: string().nullable(),
+      linkMap: string().nullable(),
     });
 
     validateSchema.validateSync(request.body);
@@ -26,6 +32,12 @@ class CompanyController {
       name: string().required(),
       city: string().nullable(),
       uf: string().nullable(),
+      cep: string().nullable(),
+      district: string().nullable(),
+      phone: string().nullable(),
+      whatsapp: string().nullable(),
+      linkWhatsapp: string().nullable(),
+      linkMap: string().nullable(),
     });
 
     validateSchema.validateSync(request.body);
