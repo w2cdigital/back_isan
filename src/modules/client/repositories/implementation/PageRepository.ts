@@ -18,7 +18,7 @@ class PageRepository implements IPageRepository {
       .createQueryBuilder('page')
       .leftJoinAndSelect('page.companyPage', 'companyPage')
       .leftJoinAndSelect('companyPage.company', 'company')
-      .where('page.id = :slug', { slug })
+      .where('page.slug = :slug', { slug })
       .getOne();
   }
 
