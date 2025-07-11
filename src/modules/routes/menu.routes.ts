@@ -7,7 +7,7 @@ const menuController = new MenuController();
 
 const menuRoutes = Router();
 menuRoutes.post('/', asyncHandler(menuController.create));
-menuRoutes.get('/list/:companyPageId', asyncHandler(menuController.list));
+menuRoutes.get('/list/:companyId', asyncHandler(menuController.list));
 menuRoutes.get('/:id', asyncHandler(menuController.show));
 menuRoutes.patch('/update-name/:id', asyncHandler(menuController.updateName));
 menuRoutes.patch(

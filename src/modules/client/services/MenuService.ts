@@ -21,8 +21,8 @@ class MenuService {
     return this.menuRepository.save(menu);
   }
 
-  async list(companyPageId: string): Promise<Menu[]> {
-    return this.menuRepository.list(companyPageId);
+  async list(companyId: string): Promise<Menu[]> {
+    return this.menuRepository.list(companyId);
   }
 
   async show(id: string): Promise<Menu> {

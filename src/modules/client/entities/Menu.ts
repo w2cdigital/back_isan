@@ -1,5 +1,6 @@
 import { Column, Entity, OneToMany, PrimaryColumn } from 'typeorm';
 import { v4 as uuidv4 } from 'uuid';
+import { CompanyPage } from './CompanyPage';
 
 @Entity('tb_menu')
 class Menu {
@@ -14,6 +15,11 @@ class Menu {
 
   @Column({ name: 'situacao_menu' })
   situation?: boolean;
+
+  @OneToMany(() => CompanyPage, (companyPage) => companyPage.company, {
+    cascade: true,
+  })
+  companyPage: CompanyPage[];
 
   constructor() {
     if (!this.id) {

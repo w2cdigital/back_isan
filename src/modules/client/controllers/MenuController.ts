@@ -34,10 +34,10 @@ class MenuController {
   }
 
   async list(request: Request, response: Response): Promise<Response> {
-    const { companyPageId } = request.params;
+    const { companyId } = request.params;
 
     const service = container.resolve(MenuService);
-    const result = await service.list(companyPageId);
+    const result = await service.list(companyId);
     return response.json(result);
   }
 

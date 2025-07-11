@@ -16,10 +16,11 @@ class MenuRepository implements IMenuRepository {
     return this.repository.save(menu);
   }
 
-  async list(companyPageId: string): Promise<Menu[]> {
+  async list(companyId: string): Promise<Menu[]> {
     const menus = await this.repository
       .createQueryBuilder('menu')
-      .where('menu.companyPageId = :companyPageId', { companyPageId })
+      .leftJoinAndSelect('menu.companyPage', 'companyPage')
+      .where('companyPage.companyId = :companyId', { companyId })
       .getMany();
 
     return menus;
