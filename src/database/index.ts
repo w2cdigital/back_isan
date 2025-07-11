@@ -19,7 +19,7 @@ const AppDataSource = new DataSource({
   username: process.env.USERNAME,
   password: process.env.PASSWORD,
   database: process.env.DATABASE,
-  logging: true,
+  logging: false,
   entities: [entitiesPath],
 });
 

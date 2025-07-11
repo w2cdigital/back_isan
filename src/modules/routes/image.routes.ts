@@ -11,7 +11,7 @@ const uploadImage = multer(uploadConfig);
 
 const imageRoutes = Router();
 imageRoutes.post('/', asyncHandler(imageController.create));
-imageRoutes.get('/list/:pageId', asyncHandler(imageController.list));
+imageRoutes.get('/list/:companyPageId', asyncHandler(imageController.list));
 imageRoutes.get('/:id', asyncHandler(imageController.show));
 imageRoutes.patch('/update-name/:id', asyncHandler(imageController.updateName));
 imageRoutes.patch(

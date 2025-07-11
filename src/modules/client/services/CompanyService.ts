@@ -4,7 +4,7 @@ import validateUuid from '../../../shared/helpers/ValidateUuid';
 import { ICompanyRepository } from '../repositories/ICompanyRepository';
 import { Company } from '../entities/Company';
 import { ICreateCompanyDTO } from '../dtos/ICreateCompanyDTO';
-import { IBucketStorage } from 'shared/upload_buckets/BucketStorage';
+import { IBucketStorage } from '../../../shared/upload_buckets/BucketStorage';
 
 @injectable()
 class CompanyService {

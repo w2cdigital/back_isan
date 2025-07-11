@@ -4,7 +4,7 @@ import validateUuid from '../../../shared/helpers/ValidateUuid';
 import { Image } from '../entities/Image';
 import { ImageRepository } from '../repositories/implementation/ImageRepository';
 import { ICreateImageDTO } from '../dtos/ICreateImageDTO';
-import { IBucketStorage } from 'shared/upload_buckets/BucketStorage';
+import { IBucketStorage } from '../../../shared/upload_buckets/BucketStorage';
 
 @injectable()
 class ImageService {
