@@ -70,6 +70,13 @@ class PageController {
     return response.json(result);
   }
 
+  async slug(request: Request, response: Response): Promise<Response> {
+    const { slug } = request.params;
+    const service = container.resolve(PageService);
+    const result = await service.slug(slug);
+    return response.json(result);
+  }
+
   async updateSituation(
     request: Request,
     response: Response,

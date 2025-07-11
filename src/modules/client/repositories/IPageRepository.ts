@@ -11,6 +11,7 @@ interface IPageRepository {
     input?: string,
   ): Promise<IResponsePageDTO[]>;
   findById(id: string): Promise<Page>;
+  findBySlug(slug: string): Promise<Page>;
   updateSituation(id: string, situation: boolean): Promise<void>;
 }
 

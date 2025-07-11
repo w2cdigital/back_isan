@@ -56,6 +56,10 @@ class PageService {
     return this.pageRepository.findById(id);
   }
 
+  async slug(slug: string): Promise<Page> {
+    return this.pageRepository.findBySlug(slug);
+  }
+
   async updateSituation(id: string, situation: boolean): Promise<void> {
     await this.pageRepository.updateSituation(id, situation);
   }

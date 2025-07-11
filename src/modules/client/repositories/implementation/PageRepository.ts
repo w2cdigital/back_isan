@@ -13,6 +13,15 @@ class PageRepository implements IPageRepository {
     this.repository = AppDataSource.getRepository(Page);
   }
 
+  async findBySlug(slug: string): Promise<Page> {
+    return this.repository
+      .createQueryBuilder('page')
+      .leftJoinAndSelect('page.companyPage', 'companyPage')
+      .leftJoinAndSelect('companyPage.company', 'company')
+      .where('page.id = :slug', { slug })
+      .getOne();
+  }
+
   async save(page: Page): Promise<Page> {
     return this.repository.save(page);
   }
