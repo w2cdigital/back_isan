@@ -10,6 +10,7 @@ import { typeButonRoutes } from './typebuton.routes';
 import { butonRoutes } from './buton.routes';
 import { categoryCourseRoutes } from './categorycourse.routes';
 import { layoutRoutes } from './layout.routes';
+import { galleryRoutes } from './gallery.routes';
 
 const router = Router();
 
@@ -23,6 +24,7 @@ router.use('/text', textRoutes);
 router.use('/category-course', categoryCourseRoutes);
 router.use('/type-image', typeImageRoutes);
 router.use('/image', imageRoutes);
+router.use('/gallery', galleryRoutes);
 router.use('/buton', butonRoutes);
 
 export { router };
