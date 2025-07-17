@@ -22,6 +22,12 @@ import {
   BucketStorage,
   IBucketStorage,
 } from '../../shared/upload_buckets/BucketStorage';
+import { ICategoryCourseRepository } from '../../modules/client/repositories/ICategoryCourseRepository';
+import { CategoryCourseRepository } from '../../modules/client/repositories/implementation/CategoryCourseRepository';
+import { ILayoutRepository } from '../../modules/client/repositories/ILayoutRepository';
+import { LayoutRepository } from '../../modules/client/repositories/implementation/LayoutRepository';
+import { IGalleryRepository } from '../../modules/client/repositories/IGalleryRepository';
+import { GalleryRepository } from '../../modules/client/repositories/implementation/GalleryRepository';
 
 container.registerSingleton<ICompanyRepository>(
   'CompanyRepository',
@@ -71,4 +77,19 @@ container.registerSingleton<IImageRepository>(
 container.registerSingleton<IButonRepository>(
   'ButonRepository',
   delay(() => ButonRepository),
+);
+
+container.registerSingleton<ICategoryCourseRepository>(
+  'CategoryCourseRepository',
+  delay(() => CategoryCourseRepository),
+);
+
+container.registerSingleton<ILayoutRepository>(
+  'LayoutRepository',
+  delay(() => LayoutRepository),
+);
+
+container.registerSingleton<IGalleryRepository>(
+  'GalleryRepository',
+  delay(() => GalleryRepository),
 );
