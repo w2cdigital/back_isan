@@ -5,6 +5,7 @@ interface ILayoutRepository {
   list(companyPageId: string): Promise<Layout[]>;
   findById(id: string): Promise<Layout>;
   updateJson(id: string, json: Record<string, any>): Promise<void>;
+  updateSituation(id: string, situation: boolean): Promise<void>;
 }
 
 export { ILayoutRepository };

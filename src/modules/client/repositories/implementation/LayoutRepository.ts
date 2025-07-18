@@ -10,6 +10,10 @@ class LayoutRepository implements ILayoutRepository {
     this.repository = AppDataSource.getRepository(Layout);
   }
 
+  async updateSituation(id: string, situation: boolean): Promise<void> {
+    await this.repository.update(id, { situation });
+  }
+
   async updateJson(id: string, json: Record<string, any>): Promise<void> {
     await this.repository.update(id, { json });
   }

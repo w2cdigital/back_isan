@@ -12,9 +12,13 @@ class Layout {
   @Column({ name: 'id_empresapagina' })
   companyPageId: string;
 
+  @Column({ name: 'situacao_layout' })
+  situation: boolean;
+
   constructor() {
     if (!this.id) {
       this.id = uuidv4();
+      this.situation = true;
     }
   }
 }

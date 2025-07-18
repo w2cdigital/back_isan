@@ -32,6 +32,11 @@ class LayoutService {
     await this.layoutRepository.updateJson(id, json);
   }
 
+  async updateSituation(id: string, situation: boolean): Promise<void> {
+    validateUuid(id);
+    await this.layoutRepository.updateSituation(id, situation);
+  }
+
   async list(companyPageId: string): Promise<Layout[]> {
     validateUuid(companyPageId);
     return this.layoutRepository.list(companyPageId);

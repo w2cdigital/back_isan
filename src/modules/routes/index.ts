@@ -11,6 +11,7 @@ import { butonRoutes } from './buton.routes';
 import { categoryCourseRoutes } from './categorycourse.routes';
 import { layoutRoutes } from './layout.routes';
 import { galleryRoutes } from './gallery.routes';
+import { courseRoutes } from './course.routes';
 
 const router = Router();
 
@@ -25,6 +26,7 @@ router.use('/category-course', categoryCourseRoutes);
 router.use('/type-image', typeImageRoutes);
 router.use('/image', imageRoutes);
 router.use('/gallery', galleryRoutes);
+router.use('/course', courseRoutes);
 router.use('/buton', butonRoutes);
 
 export { router };

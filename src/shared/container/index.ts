@@ -28,6 +28,8 @@ import { ILayoutRepository } from '../../modules/client/repositories/ILayoutRepo
 import { LayoutRepository } from '../../modules/client/repositories/implementation/LayoutRepository';
 import { IGalleryRepository } from '../../modules/client/repositories/IGalleryRepository';
 import { GalleryRepository } from '../../modules/client/repositories/implementation/GalleryRepository';
+import { ICourseRepository } from '../../modules/client/repositories/ICourseRepository';
+import { CourseRepository } from '../../modules/client/repositories/implementation/CourseRepository';
 
 container.registerSingleton<ICompanyRepository>(
   'CompanyRepository',
@@ -92,4 +94,9 @@ container.registerSingleton<ILayoutRepository>(
 container.registerSingleton<IGalleryRepository>(
   'GalleryRepository',
   delay(() => GalleryRepository),
+);
+
+container.registerSingleton<ICourseRepository>(
+  'CourseRepository',
+  delay(() => CourseRepository),
 );

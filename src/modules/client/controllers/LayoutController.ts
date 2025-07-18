@@ -21,6 +21,24 @@ class LayoutController {
     return response.sendStatus(200);
   }
 
+  async updateSituation(
+    request: Request,
+    response: Response,
+  ): Promise<Response> {
+    const { id } = request.params;
+    const { situation } = request.body;
+
+    const validateSchema = object({
+      situation: boolean().required(),
+    });
+
+    validateSchema.validateSync({ situation });
+
+    const service = container.resolve(LayoutService);
+    await service.updateSituation(id, situation);
+    return response.sendStatus(200);
+  }
+
   async list(request: Request, response: Response): Promise<Response> {
     const { companyPageId } = request.params;
     const service = container.resolve(LayoutService);
