@@ -13,7 +13,7 @@ class GalleryController {
     validateSchema.validateSync(request.body);
 
     const service = container.resolve(GalleryService);
-    const result = await service.create(request.body);
+    const result = await service.create(request.body.name);
     return response.status(201).json(result);
   }
 
