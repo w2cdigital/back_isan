@@ -71,9 +71,9 @@ class PageController {
   }
 
   async slug(request: Request, response: Response): Promise<Response> {
-    const { slug } = request.params;
+    const { slug } = request.query;
     const service = container.resolve(PageService);
-    const result = await service.slug(slug);
+    const result = await service.slug(slug.toString());
     return response.json(result);
   }
 

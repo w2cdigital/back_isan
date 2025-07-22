@@ -7,7 +7,7 @@ const pageController = new PageController();
 
 const pageRoutes = Router();
 pageRoutes.post('/', asyncHandler(pageController.create));
-pageRoutes.get('/slug/:slug', asyncHandler(pageController.slug));
+pageRoutes.get('/search-slug', asyncHandler(pageController.slug));
 pageRoutes.get('/:id', asyncHandler(pageController.show));
 pageRoutes.get('/', asyncHandler(pageController.list));
 pageRoutes.put('/:id', asyncHandler(pageController.update));
