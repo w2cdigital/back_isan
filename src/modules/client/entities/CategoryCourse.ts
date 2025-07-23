@@ -15,6 +15,12 @@ class CategoryCourse {
   @Column({ name: 'situacao_categoria' })
   situation?: boolean;
 
+  @Column({ name: 'id_empresa' })
+  companyId: string;
+
+  @Column({ name: 'cor_categoria' })
+  color: string;
+
   constructor() {
     if (!this.id) {
       this.id = uuidv4();

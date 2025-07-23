@@ -7,16 +7,32 @@ import { Image } from '../entities/Image';
 
 class CategoryCourseController {
   async create(request: Request, response: Response): Promise<Response> {
-    const { title } = request.body;
     const validateSchema = object({
       title: string().nullable(),
+      color: string().nullable(),
+      companyId: string().required(),
     });
 
-    validateSchema.validateSync({ title: title });
+    validateSchema.validateSync(request.body);
 
     const service = container.resolve(CategoryCourseService);
-    const result = await service.create(title);
+    const result = await service.create(request.body);
     return response.status(201).json(result);
+  }
+
+  async update(request: Request, response: Response): Promise<Response> {
+    const { id } = request.params;
+    const validateSchema = object({
+      title: string().nullable(),
+      color: string().nullable(),
+      companyId: string().nullable(),
+    });
+
+    validateSchema.validateSync(request.body);
+
+    const service = container.resolve(CategoryCourseService);
+    const result = await service.update(id, request.body);
+    return response.status(200).json(result);
   }
 
   async updateTitle(request: Request, response: Response): Promise<Response> {
@@ -35,8 +51,10 @@ class CategoryCourseController {
   }
 
   async list(request: Request, response: Response): Promise<Response> {
+    const { companyId } = request.params;
+
     const service = container.resolve(CategoryCourseService);
-    const result = await service.list();
+    const result = await service.list(companyId);
     return response.json(result);
   }
 

@@ -45,8 +45,8 @@ class CourseService {
     return this.courseRepository.save(course);
   }
 
-  async list(companyId: string): Promise<Course[]> {
-    return this.courseRepository.list(companyId);
+  async list(categoryId: string): Promise<Course[]> {
+    return this.courseRepository.list(categoryId);
   }
 
   async show(id: string): Promise<Course> {

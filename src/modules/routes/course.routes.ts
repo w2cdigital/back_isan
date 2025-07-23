@@ -11,7 +11,7 @@ const uploadImage = multer(uploadConfig);
 
 const courseRoutes = Router();
 courseRoutes.post('/', asyncHandler(courseController.create));
-courseRoutes.get('/list/:companyId', asyncHandler(courseController.list));
+courseRoutes.get('/list/:categoryId', asyncHandler(courseController.list));
 courseRoutes.get('/:id', asyncHandler(courseController.show));
 courseRoutes.put('/:id', asyncHandler(courseController.update));
 courseRoutes.patch(

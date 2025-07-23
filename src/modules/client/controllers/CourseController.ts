@@ -16,7 +16,7 @@ class CourseController {
       contrast: boolean().nullable(),
       banner: boolean().nullable(),
       categoryCourseId: string().required(),
-      companyId: string().required(),
+      companyId: string().nullable(),
     });
 
     validateSchema.validateSync(request.body);
@@ -64,9 +64,9 @@ class CourseController {
   }
 
   async list(request: Request, response: Response): Promise<Response> {
-    const { companyId } = request.params;
+    const { categoryId } = request.params;
     const service = container.resolve(CourseService);
-    const result = await service.list(companyId);
+    const result = await service.list(categoryId);
     return response.json(result);
   }
 

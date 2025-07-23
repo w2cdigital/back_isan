@@ -15,9 +15,9 @@ class CourseRepository implements ICourseRepository {
     return this.repository.save(course);
   }
 
-  async list(companyId: string): Promise<Course[]> {
+  async list(categoryId: string): Promise<Course[]> {
     return this.repository.find({
-      where: { companyId },
+      where: { categoryCourseId: categoryId },
     });
   }
 

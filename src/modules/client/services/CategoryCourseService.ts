@@ -6,6 +6,7 @@ import { ICreateButonDTO } from '../dtos/ICreateButonDTO';
 import { Buton } from '../entities/Buton';
 import { CategoryCourse } from '../entities/CategoryCourse';
 import { IBucketStorage } from '../../../shared/upload_buckets/BucketStorage';
+import { ICreateCategoryCourseDTO } from '../dtos/ICreateCategoryCourseDTO';
 
 @injectable()
 class CategoryCourseService {
@@ -16,16 +17,30 @@ class CategoryCourseService {
     private bucketStorage: IBucketStorage,
   ) {}
 
-  async create(title: string): Promise<CategoryCourse> {
+  async create(categoryDTO: ICreateCategoryCourseDTO): Promise<CategoryCourse> {
     const categoryCourse = new CategoryCourse();
 
-    categoryCourse.title = title;
+    categoryCourse.title = categoryDTO.title;
+    categoryCourse.color = categoryDTO.color;
+    categoryCourse.companyId = categoryDTO.companyId;
 
     return this.categoryCourseRepository.save(categoryCourse);
   }
 
-  async list(): Promise<CategoryCourse[]> {
-    return this.categoryCourseRepository.list();
+  async update(
+    id: string,
+    categoryDTO: ICreateCategoryCourseDTO,
+  ): Promise<CategoryCourse> {
+    const categoryCourse = await this.categoryCourseRepository.findById(id);
+
+    categoryCourse.title = categoryDTO.title;
+    categoryCourse.color = categoryDTO.color;
+
+    return this.categoryCourseRepository.save(categoryCourse);
+  }
+
+  async list(companyId: string): Promise<CategoryCourse[]> {
+    return this.categoryCourseRepository.list(companyId);
   }
 
   async show(id: string): Promise<CategoryCourse> {

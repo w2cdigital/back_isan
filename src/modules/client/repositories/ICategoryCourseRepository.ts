@@ -2,7 +2,7 @@ import { CategoryCourse } from '../entities/CategoryCourse';
 
 interface ICategoryCourseRepository {
   save(categoryCourse: CategoryCourse): Promise<CategoryCourse>;
-  list(): Promise<CategoryCourse[]>;
+  list(companyId: string): Promise<CategoryCourse[]>;
   findById(i: string): Promise<CategoryCourse>;
   updateSituation(id: string, situation: boolean): Promise<void>;
   updateImage(id: string, image: string): Promise<void>;

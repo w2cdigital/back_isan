@@ -18,8 +18,8 @@ class CategoryCourseRepository implements ICategoryCourseRepository {
     return this.repository.save(categoryCourse);
   }
 
-  async list(): Promise<CategoryCourse[]> {
-    return this.repository.find();
+  async list(companyId: string): Promise<CategoryCourse[]> {
+    return this.repository.find({ where: { companyId } });
   }
 
   async findById(id: string): Promise<CategoryCourse> {
