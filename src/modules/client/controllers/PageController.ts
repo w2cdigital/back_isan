@@ -77,6 +77,26 @@ class PageController {
     return response.json(result);
   }
 
+  async findCourseByPageId(
+    request: Request,
+    response: Response,
+  ): Promise<Response> {
+    const { pageId } = request.params;
+    const service = container.resolve(PageService);
+    const result = await service.findCourseByPageId(pageId);
+    return response.json(result);
+  }
+
+  async findCategoryCourseByPageId(
+    request: Request,
+    response: Response,
+  ): Promise<Response> {
+    const { pageId } = request.params;
+    const service = container.resolve(PageService);
+    const result = await service.findCategoryCourseByPageId(pageId);
+    return response.json(result);
+  }
+
   async updateSituation(
     request: Request,
     response: Response,

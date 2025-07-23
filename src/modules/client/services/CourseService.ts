@@ -54,6 +54,10 @@ class CourseService {
     return this.courseRepository.findById(id);
   }
 
+  async findByPageId(pageId: string): Promise<Course> {
+    return this.courseRepository.findByPageId(pageId);
+  }
+
   async updateSituation(id: string, situation: boolean): Promise<void> {
     await this.courseRepository.updateSituation(id, situation);
   }

@@ -11,6 +11,12 @@ class CourseRepository implements ICourseRepository {
     this.repository = AppDataSource.getRepository(Course);
   }
 
+  async findByPageId(pageId: string): Promise<Course> {
+    return this.repository.findOne({
+      where: { pageId },
+    });
+  }
+
   async save(course: Course): Promise<Course> {
     return this.repository.save(course);
   }

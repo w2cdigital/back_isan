@@ -10,6 +10,12 @@ class CategoryCourseRepository implements ICategoryCourseRepository {
     this.repository = AppDataSource.getRepository(CategoryCourse);
   }
 
+  async findByPageId(pageId: string): Promise<CategoryCourse> {
+    return this.repository.findOne({
+      where: { pageId },
+    });
+  }
+
   async updateTitle(id: string, title: string): Promise<void> {
     await this.repository.update(id, { title });
   }

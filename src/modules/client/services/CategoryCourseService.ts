@@ -52,6 +52,10 @@ class CategoryCourseService {
     await this.categoryCourseRepository.updateSituation(id, situation);
   }
 
+  async findByPageId(pageId: string): Promise<CategoryCourse> {
+    return this.categoryCourseRepository.findByPageId(pageId);
+  }
+
   async updateTitle(id: string, title: string): Promise<void> {
     await this.categoryCourseRepository.updateTitle(id, title);
   }

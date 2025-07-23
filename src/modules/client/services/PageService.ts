@@ -1,4 +1,4 @@
-import { inject, injectable } from 'tsyringe';
+import { container, inject, injectable } from 'tsyringe';
 import { AppError } from '../../../shared/errors/AppError';
 import validateUuid from '../../../shared/helpers/ValidateUuid';
 import { IPageRepository } from '../repositories/IPageRepository';
@@ -6,6 +6,10 @@ import { Page } from '../entities/Page';
 import { ICreatePageDTO } from '../dtos/ICreatePageDTO';
 import { CompanyPage } from '../entities/CompanyPage';
 import { IResponsePageDTO } from '../dtos/IResponsePageDTO';
+import { Course } from '../entities/Course';
+import { CourseService } from './CourseService';
+import { CategoryCourse } from '../entities/CategoryCourse';
+import { CategoryCourseService } from './CategoryCourseService';
 
 @injectable()
 class PageService {
@@ -54,6 +58,16 @@ class PageService {
 
   async show(id: string): Promise<Page> {
     return this.pageRepository.findById(id);
+  }
+
+  async findCourseByPageId(pageId: string): Promise<Course> {
+    const service = container.resolve(CourseService);
+    return service.findByPageId(pageId);
+  }
+
+  async findCategoryCourseByPageId(pageId: string): Promise<CategoryCourse> {
+    const service = container.resolve(CategoryCourseService);
+    return service.findByPageId(pageId);
   }
 
   async slug(slug: string): Promise<Page> {
