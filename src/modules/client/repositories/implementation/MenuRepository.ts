@@ -19,20 +19,20 @@ class MenuRepository implements IMenuRepository {
   async list(companyId: string): Promise<Menu[]> {
     const menus = await this.repository.query(
       `
-      select
-        menu.nome_menu as menu,
-        menu.id_menu as menuId,
-        menu.situacao_menu as situationMenu,
-        pagina.nome_pagina as page,
-        pagina.slug_pagina as slug,
-        pagina.tipo_pagina as typePage,
-        pagina.situacao_pagina as situationPage
-      from tb_menu menu
-        left join tb_empresapagina empresaPagina on menu.id_empresapagina = empresaPagina.id_empresapagina
-        left join tb_pagina pagina on empresaPagina.id_pagina = pagina.id_pagina
-      where
-        empresaPagina.id_empresa = ?
-    `,
+        select
+          menu.nome_menu as menu,
+          menu.id_menu as menuId,
+          menu.situacao_menu as situationMenu,
+          pagina.nome_pagina as page,
+          pagina.slug_pagina as slug,
+          pagina.tipo_pagina as typePage,
+          pagina.situacao_pagina as situationPage
+        from tb_menu menu
+          left join tb_empresapagina empresaPagina on menu.id_empresapagina = empresaPagina.id_empresapagina
+          left join tb_pagina pagina on empresaPagina.id_pagina = pagina.id_pagina
+        where
+          empresaPagina.id_empresa = ?
+      `,
       [companyId],
     );
 
@@ -40,7 +40,28 @@ class MenuRepository implements IMenuRepository {
   }
 
   async findById(id: string): Promise<Menu> {
-    return this.repository.findOne({ where: { id } });
+    const menu = await this.repository.query(
+      `
+        select
+          menu.nome_menu as menu,
+          menu.id_menu as menuId,
+          menu.situacao_menu as situationMenu,
+          pagina.nome_pagina as page,
+          pagina.slug_pagina as slug,
+          pagina.tipo_pagina as typePage,
+          pagina.situacao_pagina as situationPage,
+          empresaPagina.id_empresa as companyId,
+          empresaPagina.id_pagina as pageId
+        from tb_menu menu
+          left join tb_empresapagina empresaPagina on menu.id_empresapagina = empresaPagina.id_empresapagina
+          left join tb_pagina pagina on empresaPagina.id_pagina = pagina.id_pagina
+        where
+          menu.id_menu = ?
+      `,
+      [id],
+    );
+
+    return menu[0];
   }
 
   async updateSituation(id: string, situation: boolean): Promise<void> {
