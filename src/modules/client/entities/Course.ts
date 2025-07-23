@@ -39,6 +39,9 @@ class Course {
   @Column({ name: 'id_empresa' })
   companyId: string;
 
+  @Column({ name: 'id_pagina' })
+  pageId: string;
+
   constructor() {
     if (!this.id) {
       this.id = uuidv4();

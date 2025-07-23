@@ -18,6 +18,9 @@ class CategoryCourse {
   @Column({ name: 'id_empresa' })
   companyId: string;
 
+  @Column({ name: 'id_pagina' })
+  pageId: string;
+
   @Column({ name: 'cor_categoria' })
   color: string;
 

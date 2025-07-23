@@ -17,6 +17,7 @@ class CourseController {
       banner: boolean().nullable(),
       categoryCourseId: string().required(),
       companyId: string().nullable(),
+      pageId: string().nullable(),
     });
 
     validateSchema.validateSync(request.body);

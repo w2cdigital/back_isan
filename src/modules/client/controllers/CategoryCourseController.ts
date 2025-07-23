@@ -11,6 +11,7 @@ class CategoryCourseController {
       title: string().nullable(),
       color: string().nullable(),
       companyId: string().required(),
+      pageId: string().required(),
     });
 
     validateSchema.validateSync(request.body);

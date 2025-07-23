@@ -23,6 +23,7 @@ class CategoryCourseService {
     categoryCourse.title = categoryDTO.title;
     categoryCourse.color = categoryDTO.color;
     categoryCourse.companyId = categoryDTO.companyId;
+    categoryCourse.pageId = categoryDTO.pageId;
 
     return this.categoryCourseRepository.save(categoryCourse);
   }
