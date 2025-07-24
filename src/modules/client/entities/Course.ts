@@ -21,7 +21,7 @@ class Course {
   @Column({ name: 'duracao_curso' })
   duration: string;
 
-  @Column({ name: 'textoinscricoes' })
+  @Column({ name: 'textoinscricoes_curso' })
   text: string;
 
   @Column({ name: 'situacao_curso' })
