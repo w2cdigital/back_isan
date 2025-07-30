@@ -12,6 +12,8 @@ class CategoryCourseController {
       color: string().nullable(),
       companyId: string().required(),
       pageId: string().required(),
+      referenceId: string().nullable(),
+      description: string().nullable(),
     });
 
     validateSchema.validateSync(request.body);
@@ -27,6 +29,9 @@ class CategoryCourseController {
       title: string().nullable(),
       color: string().nullable(),
       companyId: string().nullable(),
+      pageId: string().required(),
+      referenceId: string().nullable(),
+      description: string().nullable(),
     });
 
     validateSchema.validateSync(request.body);
@@ -56,6 +61,17 @@ class CategoryCourseController {
 
     const service = container.resolve(CategoryCourseService);
     const result = await service.list(companyId);
+    return response.json(result);
+  }
+
+  async findbyReferenceId(
+    request: Request,
+    response: Response,
+  ): Promise<Response> {
+    const { referenceId } = request.params;
+
+    const service = container.resolve(CategoryCourseService);
+    const result = await service.findByReferenceId(referenceId);
     return response.json(result);
   }
 

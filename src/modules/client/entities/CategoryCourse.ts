@@ -12,6 +12,9 @@ class CategoryCourse {
   @Column({ name: 'titulo_categoria' })
   title: string;
 
+  @Column({ name: 'descricao_categoria' })
+  description?: string;
+
   @Column({ name: 'situacao_categoria' })
   situation?: boolean;
 
@@ -20,6 +23,9 @@ class CategoryCourse {
 
   @Column({ name: 'id_pagina' })
   pageId: string;
+
+  @Column({ name: 'id_referencia' })
+  referenceId?: string;
 
   @Column({ name: 'cor_categoria' })
   color: string;

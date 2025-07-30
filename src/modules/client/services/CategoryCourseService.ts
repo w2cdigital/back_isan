@@ -22,6 +22,8 @@ class CategoryCourseService {
 
     categoryCourse.title = categoryDTO.title;
     categoryCourse.color = categoryDTO.color;
+    categoryCourse.description = categoryDTO.description;
+    categoryCourse.referenceId = categoryDTO.referenceId;
     categoryCourse.companyId = categoryDTO.companyId;
     categoryCourse.pageId = categoryDTO.pageId;
 
@@ -36,6 +38,9 @@ class CategoryCourseService {
 
     categoryCourse.title = categoryDTO.title;
     categoryCourse.color = categoryDTO.color;
+    categoryCourse.description = categoryDTO.description;
+    categoryCourse.referenceId = categoryDTO.referenceId;
+    categoryCourse.pageId = categoryDTO.pageId;
 
     return this.categoryCourseRepository.save(categoryCourse);
   }
@@ -54,6 +59,10 @@ class CategoryCourseService {
 
   async findByPageId(pageId: string): Promise<CategoryCourse> {
     return this.categoryCourseRepository.findByPageId(pageId);
+  }
+
+  async findByReferenceId(referenceId: string): Promise<CategoryCourse[]> {
+    return this.categoryCourseRepository.findByReferenceId(referenceId);
   }
 
   async updateTitle(id: string, title: string): Promise<void> {

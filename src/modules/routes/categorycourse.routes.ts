@@ -15,6 +15,10 @@ categoryCourseRoutes.get(
   '/list/:companyId',
   asyncHandler(categoryCourseController.list),
 );
+categoryCourseRoutes.get(
+  '/find-by-reference/:referenceId',
+  asyncHandler(categoryCourseController.findbyReferenceId),
+);
 categoryCourseRoutes.get('/:id', asyncHandler(categoryCourseController.show));
 categoryCourseRoutes.put('/:id', asyncHandler(categoryCourseController.update));
 categoryCourseRoutes.patch(
