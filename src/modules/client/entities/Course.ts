@@ -24,6 +24,9 @@ class Course {
   @Column({ name: 'textoinscricoes_curso' })
   text: string;
 
+  @Column({ name: 'link_curso' })
+  link?: string;
+
   @Column({ name: 'situacao_curso' })
   situation?: boolean;
 

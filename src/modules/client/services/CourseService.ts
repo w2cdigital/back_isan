@@ -28,6 +28,7 @@ class CourseService {
     course.categoryCourseId = courseDTO.categoryCourseId;
     course.companyId = courseDTO.companyId;
     course.pageId = courseDTO.pageId;
+    course.link = courseDTO.link;
 
     return this.courseRepository.save(course);
   }
@@ -45,6 +46,7 @@ class CourseService {
     course.categoryCourseId = courseDTO.categoryCourseId;
     course.companyId = courseDTO.companyId;
     course.pageId = courseDTO.pageId;
+    course.link = courseDTO.link;
 
     return this.courseRepository.save(course);
   }

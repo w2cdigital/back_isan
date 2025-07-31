@@ -8,6 +8,7 @@ interface ICreateCourseDTO {
   banner: boolean;
   categoryCourseId: string;
   companyId: string;
+  link?: string;
   pageId?: string;
 }
 
