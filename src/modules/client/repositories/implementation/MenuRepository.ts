@@ -27,7 +27,7 @@ class MenuRepository implements IMenuRepository {
           menu.nome_menu as menu,
           menu.id_menu as menuId,
           menu.situacao_menu as situationMenu,
-          menu.ordem_menu as order,
+          menu.ordem_menu as menuOrder,
           pagina.nome_pagina as page,
           pagina.slug_pagina as slug,
           pagina.tipo_pagina as typePage,
