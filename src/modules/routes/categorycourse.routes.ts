@@ -30,6 +30,10 @@ categoryCourseRoutes.patch(
   asyncHandler(categoryCourseController.updateSituation),
 );
 categoryCourseRoutes.patch(
+  '/update-order/:id',
+  asyncHandler(categoryCourseController.updateOrder),
+);
+categoryCourseRoutes.patch(
   '/upload-image/:id',
   [uploadImage.single('image')],
   asyncHandler(categoryCourseController.uploadImage),

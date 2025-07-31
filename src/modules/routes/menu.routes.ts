@@ -14,5 +14,6 @@ menuRoutes.patch(
   '/update-situation/:id',
   asyncHandler(menuController.updateSituation),
 );
+menuRoutes.patch('/update-order/:id', asyncHandler(menuController.updateOrder));
 
 export { menuRoutes };

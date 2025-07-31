@@ -3,6 +3,7 @@ import { CategoryCourse } from '../entities/CategoryCourse';
 interface ICategoryCourseRepository {
   save(categoryCourse: CategoryCourse): Promise<CategoryCourse>;
   list(companyId: string): Promise<CategoryCourse[]>;
+  updateOrder(id: string, order: number): Promise<void>;
   findById(i: string): Promise<CategoryCourse>;
   findByPageId(pageId: string): Promise<CategoryCourse>;
   findByReferenceId(referenceId: string): Promise<CategoryCourse[]>;

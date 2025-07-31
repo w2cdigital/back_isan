@@ -16,6 +16,9 @@ class Menu {
   @Column({ name: 'situacao_menu' })
   situation?: boolean;
 
+  @Column({ name: 'ordem_menu' })
+  order?: number;
+
   @OneToMany(() => CompanyPage, (companyPage) => companyPage.company, {
     cascade: true,
   })
@@ -25,6 +28,7 @@ class Menu {
     if (!this.id) {
       this.id = uuidv4();
       this.situation = true;
+      this.order = 0; // Default order value
     }
   }
 }

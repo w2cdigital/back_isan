@@ -25,6 +25,10 @@ class MenuService {
     return this.menuRepository.list(companyId);
   }
 
+  async updateOrder(id: string, order: number): Promise<void> {
+    await this.menuRepository.updateOrder(id, order);
+  }
+
   async show(id: string): Promise<Menu> {
     return this.menuRepository.findById(id);
   }

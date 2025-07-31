@@ -18,6 +18,9 @@ class CategoryCourse {
   @Column({ name: 'situacao_categoria' })
   situation?: boolean;
 
+  @Column({ name: 'ordem_categoriacurso' })
+  order?: number;
+
   @Column({ name: 'id_empresa' })
   companyId: string;
 
@@ -34,6 +37,7 @@ class CategoryCourse {
     if (!this.id) {
       this.id = uuidv4();
       this.situation = true;
+      this.order = 0;
     }
   }
 }

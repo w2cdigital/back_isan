@@ -12,6 +12,10 @@ class MenuRepository implements IMenuRepository {
     this.repository = AppDataSource.getRepository(Menu);
   }
 
+  async updateOrder(id: string, order: number): Promise<void> {
+    await this.repository.update(id, { order });
+  }
+
   async save(menu: Menu): Promise<Menu> {
     return this.repository.save(menu);
   }

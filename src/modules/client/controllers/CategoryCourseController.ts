@@ -91,6 +91,15 @@ class CategoryCourseController {
     return response.sendStatus(200);
   }
 
+  async updateOrder(request: Request, response: Response): Promise<Response> {
+    const { id } = request.params;
+    const { order } = request.body;
+
+    const service = container.resolve(CategoryCourseService);
+    await service.updateOrder(id, order);
+    return response.sendStatus(200);
+  }
+
   async updateSituation(
     request: Request,
     response: Response,
