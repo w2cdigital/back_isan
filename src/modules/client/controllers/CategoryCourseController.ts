@@ -14,6 +14,7 @@ class CategoryCourseController {
       pageId: string().required(),
       referenceId: string().nullable(),
       description: string().nullable(),
+      link: string().nullable(),
     });
 
     validateSchema.validateSync(request.body);
@@ -32,6 +33,7 @@ class CategoryCourseController {
       pageId: string().required(),
       referenceId: string().nullable(),
       description: string().nullable(),
+      link: string().nullable(),
     });
 
     validateSchema.validateSync(request.body);

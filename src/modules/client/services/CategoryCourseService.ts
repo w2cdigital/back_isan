@@ -26,6 +26,7 @@ class CategoryCourseService {
     categoryCourse.referenceId = categoryDTO.referenceId;
     categoryCourse.companyId = categoryDTO.companyId;
     categoryCourse.pageId = categoryDTO.pageId;
+    categoryCourse.link = categoryDTO.link;
 
     return this.categoryCourseRepository.save(categoryCourse);
   }
@@ -41,6 +42,7 @@ class CategoryCourseService {
     categoryCourse.description = categoryDTO.description;
     categoryCourse.referenceId = categoryDTO.referenceId;
     categoryCourse.pageId = categoryDTO.pageId;
+    categoryCourse.link = categoryDTO.link;
 
     return this.categoryCourseRepository.save(categoryCourse);
   }

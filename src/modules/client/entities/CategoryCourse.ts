@@ -12,6 +12,9 @@ class CategoryCourse {
   @Column({ name: 'titulo_categoria' })
   title: string;
 
+  @Column({ name: 'link_categoriacurso' })
+  link?: string;
+
   @Column({ name: 'descricao_categoria' })
   description?: string;
 

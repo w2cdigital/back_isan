@@ -5,6 +5,7 @@ interface ICreateCategoryCourseDTO {
   pageId: string;
   description?: string;
   referenceId?: string;
+  link?: string;
 }
 
 export { ICreateCategoryCourseDTO };
